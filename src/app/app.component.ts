@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Human } from './Human';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-family-app';
-  firstName = 'Alexey';
+  human: Human = {
+    id: 123,
+    name: 'Alexey',
+    familyName: 'Sandler'
+  };
 }
+
+
