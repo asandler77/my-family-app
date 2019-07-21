@@ -1,17 +1,17 @@
 <div class="container">
-  <form>
+  <form (submit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="person.name" name="name">
-      <label for="familyName">FamilyName</label>
-      <input type="text" class="form-control" id="familyName" required [(ngModel)]="person.familyName" name="familyName">
-      <label for="id">Id</label>
-      <input type="number" class="form-control" id="id" required [(ngModel)]="person.id" name="id">
+      <input type="text" class="form-control" id="name" required [(ngModel)]="personName" name="name">
+      <!--<label for="familyName">FamilyName</label>-->
+      <!--<input type="text" class="form-control" id="familyName" required [(ngModel)]="person.familyName" name="familyName">-->
+      <!--<label for="id">Id</label>-->
+      <!--<input type="number" class="form-control" id="id" required [(ngModel)]="person.id" name="id">-->
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
 <div>
   <h2>Model:</h2>
-  {{ currentBook }}
+  {{ result }}
 </div>
