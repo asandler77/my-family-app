@@ -8,11 +8,7 @@ import { Human } from './Human';
 })
 export class AppComponent {
   title = 'my-family-app';
-  human: Human = {
-    id: 123,
-    name: 'Alexey',
-    familyName: 'Sandler'
-  };
+
 }
 
 

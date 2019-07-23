@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from './api.service';
-import {Observable} from 'rxjs';
+import {MemberService} from './member.service';
 import {MemberPersonInterface} from './memberPersonInterface';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-member',
@@ -10,23 +10,22 @@ import {MemberPersonInterface} from './memberPersonInterface';
 })
 export class MemberComponent implements OnInit {
 
-  constructor(private httpService: ApiService) {}
+  constructor(private httpService: MemberService) {}
 
-  familyMember: MemberPersonInterface;
-  $membersObservable: MemberPersonInterface[]  = [];
-  personName: Observable<any>;
-  onSubmit() {
-    console.log(this.personName + 'personName');
+  familyMember: MemberPersonInterface ;
+  listOfMembers: MemberPersonInterface[]  = [];
+  onSubmit(form: NgForm) {
+    // this.httpService.setMeberInDb(addedMember).subscribe(member => this.listOfMembers.push());
   }
 
   ngOnInit() {
-    // this.httpService.getNameFromDB().subscribe((data: MemberPersonInterface[])  => this.results = data);
-     this.httpService.getNameFromDB().subscribe((res: MemberPersonInterface[]) => {
-       this.$membersObservable = res;
-       console.log(this.$membersObservable,   'my result');
+     this.httpService.getMembersFromDB().subscribe((res: MemberPersonInterface[]) => {
+       this.listOfMembers = res;
+       console.log(this.listOfMembers,   'my result');
     });
   }
-  onSelect(member) {
+  onSelect(member: MemberPersonInterface) {
     this.familyMember = member;
   }
+
 }

@@ -1,0 +1,26 @@
+<form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <button type="submit" >Submit</button>
+</form>
+
+From form:
+{{memberForm.value.firstName}}
+
+<!--<div class="container">-->
+<!--<form  (submit)="onSubmit()">-->
+<!--<div class="form-group">-->
+<!--<label for="name">Name</label>-->
+<!--<input type="text" class="form-control" id="name" required [(ngModel)]="personName" name="name">-->
+<!--</div>-->
+<!--<button type="submit" class="btn btn-default">Submit</button>-->
+<!--</form>-->
+<!--</div>-->

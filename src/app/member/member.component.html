@@ -1,21 +1,14 @@
-<!--<div class="container">-->
-  <!--<form (submit)="onSubmit()">-->
-    <!--<div class="form-group">-->
-      <!--<label for="name">Name</label>-->
-      <!--<input type="text" class="form-control" id="name" required [(ngModel)]="personName" name="name">-->
-      <!--&lt;!&ndash;<label for="familyName">FamilyName</label>&ndash;&gt;-->
-      <!--&lt;!&ndash;<input type="text" class="form-control" id="familyName" required [(ngModel)]="person.familyName" name="familyName">&ndash;&gt;-->
-      <!--&lt;!&ndash;<label for="id">Id</label>&ndash;&gt;-->
-      <!--&lt;!&ndash;<input type="number" class="form-control" id="id" required [(ngModel)]="person.id" name="id">&ndash;&gt;-->
-    <!--</div>-->
-    <!--<button type="submit" class="btn btn-default">Submit</button>-->
-  <!--</form>-->
-<!--</div>-->
 <h1>My family application</h1>
 <div>
   <ul>
-  <li *ngFor="let member of $membersObservable" (click)="onSelect(familyMember)">
+  <li *ngFor="let member of listOfMembers" (click)="onSelect(member)">
     <span class="badge">{{member.firstName}}</span>
   </li>
   </ul>
 </div>
+
+<!--<h3>{{familyMember.firstName | uppercase}}</h3>-->
+<!--<h3>{{familyMember.lastName | uppercase}}</h3>-->
+
+
+
