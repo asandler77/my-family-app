@@ -25,7 +25,11 @@ export class MemberComponent implements OnInit {
     });
   }
   onSelect(member: MemberPersonInterface) {
-    this.familyMember = member;
+    // this.familyMember = member;
+    this.httpService.deleteUser(member._id).subscribe;
+  }
+  deleteAllUsers() {
+    this.httpService.deleteAllUsers();
   }
 
 }

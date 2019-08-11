@@ -3,18 +3,18 @@ import { environment} from '../../environments/environment';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import { MemberPersonInterface } from './memberPersonInterface';
-// import {catchError} from "rxjs/operators";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberService {
 
-  // private httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type':  'application/json'
-  //   })
-  // };
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -36,6 +36,16 @@ export class MemberService {
 
   setMeberInDb(member: MemberPersonInterface): Observable<MemberPersonInterface> {
     return this.httpClient
-      .post<MemberPersonInterface>(environment.apiUrl, member);
+      .post<MemberPersonInterface>(environment.apiUrl, member, this.httpOptions);
+  }
+
+  deleteAllUsers() {
+    return this.httpClient.delete(environment.apiUrl);
+  }
+
+  deleteUser(_id: string) {
+    const url = `${environment.apiUrl}/${_id}`; // DELETE api/heroes/42
+
+    return this.httpClient.delete(url);
   }
 }
